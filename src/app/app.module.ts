@@ -30,8 +30,13 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { Not403Component } from './pages/not403/not403.component';
 import { Not404Component } from './pages/not404/not404.component';
 import { RecuperarComponent } from './pages/login/recuperar/recuperar.component';
+import { MenuComponent } from './pages/menu/menu.component';
+import { MenuEdicionComponent } from './pages/menu/menu-edicion/menu-edicion.component';
+import { RolComponent } from './pages/rol/rol.component';
+import { RolEdicionComponent } from './pages/rol/rol-edicion/rol-edicion.component';
 import { TokenComponent } from './pages/login/recuperar/token/token.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
 
 export function tokenGetter() {
   let tk = sessionStorage.getItem(environment.TOKEN_NAME);
@@ -59,7 +64,11 @@ export function tokenGetter() {
     Not403Component,
     Not404Component,
     RecuperarComponent,
-    TokenComponent
+    TokenComponent,
+	  MenuComponent,
+    MenuEdicionComponent,
+    RolComponent,
+    RolEdicionComponent
   ],
   entryComponents: [MedicoDialogoComponent, BuscarDialogoComponent],
   imports: [
