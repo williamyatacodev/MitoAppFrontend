@@ -1,0 +1,29 @@
+<router-outlet></router-outlet>
+
+<div [hidden]="route.children.length !== 0">
+  <mat-card>Lista de Menu</mat-card>
+  <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="idMenu">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.idMenu}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="url">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> URL </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.url}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="asignar">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-button color="primary" [routerLink]="['asignar', row.idMenu]">Asignar</button>
+        </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" [length]="cantidad" (page)="mostrarMas($event)"></mat-paginator>
+</div>

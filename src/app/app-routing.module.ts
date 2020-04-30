@@ -22,6 +22,8 @@ import { RolEdicionComponent } from './pages/rol/rol-edicion/rol-edicion.compone
 import { RolComponent } from './pages/rol/rol.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MenuRolComponent } from './pages/menu-rol/menu-rol.component';
+import { MenuRolAsignarComponent } from './pages/menu-rol/menu-rol-asignar/menu-rol-asignar.component';
 
 
 const routes: Routes = [
@@ -52,6 +54,10 @@ const routes: Routes = [
     { path: 'nuevo', component: RolEdicionComponent },
       { path: 'edicion/:id', component: RolEdicionComponent }
     ], canActivate: [GuardService]
+  },
+  { path: 'menurol', component: MenuRolComponent, children :[
+    { path: 'asignar/:id', component: MenuRolAsignarComponent }
+   ], canActivate: [GuardService]
   },
   { path: 'medico', component: MedicoComponent, canActivate: [GuardService] },
   { path: 'consulta', component: ConsultaComponent, canActivate: [GuardService] },

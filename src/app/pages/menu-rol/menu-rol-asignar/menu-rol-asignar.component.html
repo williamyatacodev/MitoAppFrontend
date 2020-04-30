@@ -1,0 +1,54 @@
+
+<mat-card>Asignar Roles a Menu</mat-card>
+
+<form class="example-container" [formGroup]="form" #frmMenuRol="ngForm" (ngSubmit)="grabar()">
+
+    <div class="example-container-row">
+        <div [hidden]="true">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="ID" required formControlName="id">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="example-full-width"> 
+            <input matInput placeholder="Menu Seleccionado" minlength="3" required formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Rol</mat-label>
+            <mat-select [(value)]="idRolSeleccionado">
+            <mat-option *ngFor="let rol of roles" [value]="rol.idRol">
+                {{rol.nombre}}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="button" (click)="agregar()">
+            <span>Agregar</span>
+        </button>
+    </div>
+    <div class="example-container-row">
+        <mat-list>
+            <h3 mat-subheader>Roles Actuales</h3>
+            <mat-list-item *ngFor="let men of rolesActuales">
+                <h4 mat-line>{{men.rol.nombre}}</h4>
+            </mat-list-item>
+        </mat-list>
+
+        <mat-list>
+            <h3 mat-subheader>Nuevos Roles</h3>
+            <mat-list-item *ngFor="let rol of rolesNuevos; let i=index">
+                <h4 mat-line>{{rol.nombre}}</h4>
+                <button mat-raised-button color="warn" (click)="removerRol(i)">Remover</button>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" >
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/menurol' type="button">
+        <span>Cancelar</span>
+    </button>
+
+</form>

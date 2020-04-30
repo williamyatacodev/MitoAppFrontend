@@ -36,7 +36,9 @@ import { RolComponent } from './pages/rol/rol.component';
 import { RolEdicionComponent } from './pages/rol/rol-edicion/rol-edicion.component';
 import { TokenComponent } from './pages/login/recuperar/token/token.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-
+import { MenuRolComponent } from './pages/menu-rol/menu-rol.component';
+import { MenuRolAsignarComponent } from './pages/menu-rol/menu-rol-asignar/menu-rol-asignar.component';
+import {MatListModule} from '@angular/material/list';
 
 export function tokenGetter() {
   let tk = sessionStorage.getItem(environment.TOKEN_NAME);
@@ -68,7 +70,9 @@ export function tokenGetter() {
 	  MenuComponent,
     MenuEdicionComponent,
     RolComponent,
-    RolEdicionComponent
+    RolEdicionComponent,
+    MenuRolComponent,
+    MenuRolAsignarComponent
   ],
   entryComponents: [MedicoDialogoComponent, BuscarDialogoComponent],
   imports: [
@@ -81,6 +85,7 @@ export function tokenGetter() {
     FormsModule,
     FlexLayoutModule,
     PdfViewerModule,
+    MatListModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
