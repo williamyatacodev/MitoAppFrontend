@@ -1,0 +1,14 @@
+.example-container-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.example-container-row>mat-form-field,
+.example-container-row>mat-list{
+    width: 20%;
+}
+
+mat-list-item > .mat-list-item-content{
+    width: 100%;
+}
+

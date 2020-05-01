@@ -24,6 +24,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MenuRolComponent } from './pages/menu-rol/menu-rol.component';
 import { MenuRolAsignarComponent } from './pages/menu-rol/menu-rol-asignar/menu-rol-asignar.component';
+import { UsuarioRolComponent } from './pages/usuario-rol/usuario-rol.component';
+import { UsuarioRolAsignarComponent } from './pages/usuario-rol/usuario-rol-asignar/usuario-rol-asignar.component';
 
 
 const routes: Routes = [
@@ -57,6 +59,10 @@ const routes: Routes = [
   },
   { path: 'menurol', component: MenuRolComponent, children :[
     { path: 'asignar/:id', component: MenuRolAsignarComponent }
+   ], canActivate: [GuardService]
+  },
+  { path: 'usuariorol', component: UsuarioRolComponent, children :[
+    { path: 'asignar/:id', component: UsuarioRolAsignarComponent }
    ], canActivate: [GuardService]
   },
   { path: 'medico', component: MedicoComponent, canActivate: [GuardService] },
